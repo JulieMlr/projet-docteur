@@ -1,9 +1,5 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
-import {  useEffect } from 'react';
-import { collection, getDocs, addDoc } from "firebase/firestore";
-import { db } from './firebase';
 import Creation from './components/Creation';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import Connexion from './components/Connexion';
