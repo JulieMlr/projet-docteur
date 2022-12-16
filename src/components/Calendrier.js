@@ -1,7 +1,7 @@
 import { getDocs, query, collection, where } from 'firebase/firestore';
 import { db } from '../firebase';
 import { useParams } from 'react-router-dom';
-import React, { useCallback, useEffect, useMemo, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 function Calendrier() {
   const params = useParams();
@@ -12,7 +12,7 @@ function Calendrier() {
     let q = null;
     let fetchDataBis
     let dataClientBis = []
-    planning.map(elem => {
+    planning.forEach(elem => {
       q = query(collection(db, "usersCollection"), where("id", "==", elem.idClient));
       fetchDataBis = async () => {
         const docSnap = await getDocs(q);
@@ -51,14 +51,14 @@ function Calendrier() {
 
   return (
     <div>
-      {planning.map((elem, index) => {
+      {planning.forEach((elem, index) => {
         return (
           <div key={index}>
             <div>{elem.date}</div>
           </div>
         )
       })}
-      {clients.map((elem, index) => {
+      {clients.forEach((elem, index) => {
         return (
           <div key={index}>
             <div>{elem.id}</div>
